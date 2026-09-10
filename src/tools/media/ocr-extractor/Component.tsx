@@ -1,7 +1,6 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { createWorker } from "tesseract.js";
 import { AiRemoteBoundary } from "@/components/tools/ai-remote-boundary";
 import { ToolLayout, PaneHeader } from "@/components/tools/tool-layout";
 import { ToolToolbar } from "@/components/tools/tool-toolbar";
@@ -25,6 +24,7 @@ async function remoteOcr(file: File): Promise<string | null> {
 }
 
 async function tesseractOcr(file: File): Promise<string> {
+  const { createWorker } = await import("tesseract.js");
   const worker = await createWorker("eng");
   const result = await worker.recognize(file);
   await worker.terminate();

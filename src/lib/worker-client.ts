@@ -1,3 +1,5 @@
+"use client";
+
 export interface WorkerRequestBase {
   id: string;
 }
@@ -34,6 +36,9 @@ export function createWorkerClient<
   >();
 
   const ensure = (): Worker => {
+    if (typeof window === "undefined") {
+      throw new Error("Web Workers are only available in the browser.");
+    }
     if (worker) return worker;
     worker = factory();
     worker.onmessage = (event: MessageEvent<TRes>) => {

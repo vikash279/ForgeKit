@@ -1,3 +1,5 @@
+"use client";
+
 export function downloadText(
   filename: string,
   contents: string,

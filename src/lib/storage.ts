@@ -1,3 +1,5 @@
+"use client";
+
 const RECENT_KEY = "forgekit:recent-tools";
 const MAX_RECENT = 12;
 

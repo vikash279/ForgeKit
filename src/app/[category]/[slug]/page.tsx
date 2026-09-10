@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { JsonLd } from "@/components/tools/json-ld";
+import { ToolClientBoundary } from "@/components/tools/tool-client-boundary";
 import { toolJsonLd, toolMetadata } from "@/lib/seo";
 import { getStaticToolParams, requireRegisteredTool } from "@/registry";
 
@@ -26,12 +27,11 @@ export default async function ToolPage({
 }) {
   const { category, slug } = await params;
   const tool = requireRegisteredTool(category, slug);
-  const Component = (await tool.loadComponent()).default;
 
   return (
     <>
       <JsonLd data={toolJsonLd(tool.config)} />
-      <Component config={tool.config} />
+      <ToolClientBoundary category={category} slug={slug} config={tool.config} />
     </>
   );
 }

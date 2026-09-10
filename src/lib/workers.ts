@@ -1,3 +1,5 @@
+"use client";
+
 import type { CryptoWorkerRequest, CryptoWorkerResponse, DiffWorkerRequest, DiffWorkerResponse, ImageWorkerRequest, ImageWorkerResponse } from "@/lib/crypto/protocol";
 import { createWorkerClient } from "@/lib/worker-client";
 
