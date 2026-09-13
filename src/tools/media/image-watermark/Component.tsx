@@ -21,7 +21,7 @@ const PRESETS: Record<string, [number, number]> = {
 export default function ImageWatermarkTool({ config }: ToolComponentProps) {
   const fileRef = useRef<HTMLInputElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [text, setText] = useState("ForgeKit");
+  const [text, setText] = useState("LocalForge");
   const [preset, setPreset] = useState("original");
   const [preview, setPreview] = useState<string | null>(null);
   const [source, setSource] = useState<HTMLImageElement | null>(null);

@@ -5,6 +5,8 @@ export type ExecutionTarget = (typeof EXECUTION_TARGETS)[number];
 
 export const TOOL_CATEGORIES = [
   "development",
+  "samples",
+  "converters",
   "website",
   "security",
   "media",
@@ -26,6 +28,11 @@ export interface ToolIoField {
   label: string;
   kind: ToolIoKind;
   description?: string;
+}
+
+export interface ToolFaqItem {
+  question: string;
+  answer: string;
 }
 
 export type ToolIconName =
@@ -50,7 +57,12 @@ export type ToolIconName =
   | "Stamp"
   | "QrCode"
   | "ScanText"
-  | "Diff";
+  | "Diff"
+  | "Files"
+  | "ArrowLeftRight"
+  | "Images"
+  | "FileImage"
+  | "AudioLines";
 
 export interface ToolConfig {
   slug: string;
@@ -67,6 +79,10 @@ export interface ToolConfig {
   outputs: ToolIoField[];
   sampleData?: string;
   relatedSlugs?: string[];
+  faq?: ToolFaqItem[];
+  howToSteps?: string[];
+  targetKeywords?: string[];
+  featureNotes?: string[];
 }
 
 export interface ToolComponentProps {
@@ -110,10 +126,22 @@ export const CATEGORY_META: Record<ToolCategory, CategoryMeta> = {
     description: "Hashes, codecs, encryption, passwords, and URI entities.",
     href: "/security",
   },
+  samples: {
+    id: "samples",
+    label: "Sample Files",
+    description: "Dummy JSON, CSV, SQL, and binary files generated in the browser.",
+    href: "/samples",
+  },
+  converters: {
+    id: "converters",
+    label: "Converters",
+    description: "JSON, CSV, YAML, image, and SVG conversions that stay on-device.",
+    href: "/converters",
+  },
   media: {
     id: "media",
     label: "Media & AI",
-    description: "Compress, watermark, QR, OCR, and visual text diffs.",
+    description: "Compress, watermark, QR, OCR, audio, and visual text diffs.",
     href: "/media",
   },
 };

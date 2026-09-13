@@ -29,6 +29,11 @@ import { imageWatermarkConfig } from "@/tools/media/image-watermark/config";
 import { qrStudioConfig } from "@/tools/media/qr-studio/config";
 import { ocrExtractorConfig } from "@/tools/media/ocr-extractor/config";
 import { textDiffConfig } from "@/tools/media/text-diff/config";
+import { sampleFilesConfig } from "@/tools/samples/sample-files/config";
+import { jsonCsvYamlConfig } from "@/tools/converters/json-csv-yaml/config";
+import { imageFormatConfig } from "@/tools/converters/image-format/config";
+import { svgRasterConfig } from "@/tools/converters/svg-raster/config";
+import { audioInspectorConfig } from "@/tools/media/audio-inspector/config";
 
 type ToolLoader = () => Promise<{ default: ComponentType<ToolComponentProps> }>;
 
@@ -59,6 +64,11 @@ export const TOOL_REGISTRY: readonly RegisteredTool[] = [
   register(qrStudioConfig, () => import("@/tools/media/qr-studio/Component")),
   register(ocrExtractorConfig, () => import("@/tools/media/ocr-extractor/Component")),
   register(textDiffConfig, () => import("@/tools/media/text-diff/Component")),
+  register(sampleFilesConfig, () => import("@/tools/samples/sample-files/Component")),
+  register(jsonCsvYamlConfig, () => import("@/tools/converters/json-csv-yaml/Component")),
+  register(imageFormatConfig, () => import("@/tools/converters/image-format/Component")),
+  register(svgRasterConfig, () => import("@/tools/converters/svg-raster/Component")),
+  register(audioInspectorConfig, () => import("@/tools/media/audio-inspector/Component")),
 ] as const;
 
 const toolIndex = new Map(

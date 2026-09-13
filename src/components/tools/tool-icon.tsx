@@ -1,16 +1,21 @@
 "use client";
 
 import {
+  ArrowLeftRight,
+  AudioLines,
   Binary,
   Braces,
   Clock,
   Database,
   Diff,
   FileCode,
+  FileImage,
+  Files,
   Fingerprint,
   FolderTree,
   Globe,
   Image,
+  Images,
   KeyRound,
   Link2,
   Lock,
@@ -50,6 +55,11 @@ const ICONS: Record<ToolIconName, LucideIcon> = {
   QrCode,
   ScanText,
   Diff,
+  Files,
+  ArrowLeftRight,
+  Images,
+  FileImage,
+  AudioLines,
 };
 
 export function ToolIcon({

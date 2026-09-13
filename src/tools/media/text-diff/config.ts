@@ -17,5 +17,5 @@ export const textDiffConfig: ToolConfig = {
     { id: "right", label: "Revised", kind: "text" },
   ],
   outputs: [{ id: "diff", label: "Diff", kind: "text" }],
-  sampleData: "ForgeKit ships client-first utilities.",
+  sampleData: "LocalForge ships client-first utilities.",
 };

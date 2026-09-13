@@ -29,10 +29,10 @@ export function CommandPalette() {
     };
     const onOpen = () => setOpen(true);
     window.addEventListener("keydown", onKeyDown);
-    window.addEventListener("forgekit:command-palette", onOpen);
+    window.addEventListener("localforge:command-palette", onOpen);
     return () => {
       window.removeEventListener("keydown", onKeyDown);
-      window.removeEventListener("forgekit:command-palette", onOpen);
+      window.removeEventListener("localforge:command-palette", onOpen);
     };
   }, []);
 

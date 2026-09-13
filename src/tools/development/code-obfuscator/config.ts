@@ -14,5 +14,5 @@ export const codeObfuscatorConfig: ToolConfig = {
   icon: "ShieldOff",
   inputs: [{ id: "source", label: "Source", kind: "code" }],
   outputs: [{ id: "packed", label: "Packed code", kind: "code" }],
-  sampleData: `console.log("hello from ForgeKit");`,
+  sampleData: `console.log("hello from LocalForge");`,
 };

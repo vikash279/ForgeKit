@@ -92,7 +92,7 @@ export async function fetchPublicUrl(
       redirect: "manual",
       signal: controller.signal,
       headers: {
-        "user-agent": "ForgeKit/1.0 (+local-utility-proxy)",
+        "user-agent": "LocalForge/1.0 (+local-utility-proxy)",
         ...(init.headers ?? {}),
       },
     });

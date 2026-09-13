@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { getAllToolConfigs, toolHref } from "@/registry";
+import { getAllToolConfigs, toolHref } from "@/registry/tools";
 import { CATEGORY_META, TOOL_CATEGORIES } from "@/types/tool";
 import { absoluteUrl } from "@/lib/site";
 
@@ -15,14 +15,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: absoluteUrl(toolHref(tool)),
     lastModified: now,
     changeFrequency: "weekly" as const,
-    priority: 0.7,
+    priority: 0.8,
   }));
   return [
     {
       url: absoluteUrl("/"),
       lastModified: now,
       changeFrequency: "weekly",
-      priority: 1,
+      priority: 1.0,
     },
     ...categories,
     ...tools,

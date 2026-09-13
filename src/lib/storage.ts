@@ -1,6 +1,6 @@
 "use client";
 
-const RECENT_KEY = "forgekit:recent-tools";
+const RECENT_KEY = "localforge:recent-tools";
 const MAX_RECENT = 12;
 
 export interface RecentToolRef {
@@ -31,16 +31,16 @@ export function recordRecentTool(entry: Omit<RecentToolRef, "viewedAt">): Recent
     ),
   ].slice(0, MAX_RECENT);
   window.localStorage.setItem(RECENT_KEY, JSON.stringify(next));
-  window.dispatchEvent(new Event("forgekit:recent"));
+  window.dispatchEvent(new Event("localforge:recent"));
   return next;
 }
 
 export function subscribeRecentTools(onChange: () => void): () => void {
   window.addEventListener("storage", onChange);
-  window.addEventListener("forgekit:recent", onChange);
+  window.addEventListener("localforge:recent", onChange);
   return () => {
     window.removeEventListener("storage", onChange);
-    window.removeEventListener("forgekit:recent", onChange);
+    window.removeEventListener("localforge:recent", onChange);
   };
 }
 

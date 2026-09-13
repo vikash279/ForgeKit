@@ -1,10 +1,10 @@
-# ForgeKit
+# LocalForge
 
 Privacy-first developer and webmaster utilities that run in your browser. No accounts. No telemetry. No upload-by-default.
 
 **Repo owner:** [Vikash Rai](https://github.com/vikash279)
 
-ForgeKit is a Next.js app with 22 modular tools for JSON, regex, crypto, HTTP, DNS, images, and OCR. Most work stays on the client. Network tools go through a locked-down server proxy. Heavy jobs (hashes, image processing, diffs) run in Web Workers.
+LocalForge is a Next.js app with 22 modular tools for JSON, regex, crypto, HTTP, DNS, images, and OCR. Most work stays on the client. Network tools go through a locked-down server proxy. Heavy jobs (hashes, image processing, diffs) run in Web Workers.
 
 ## Features
 
@@ -75,8 +75,8 @@ OCR uses Tesseract.js in the browser by default. Optionally point `NEXT_PUBLIC_O
 **Requirements:** Node.js 20+ and npm.
 
 ```bash
-git clone https://github.com/vikash279/ForgeKit.git
-cd ForgeKit
+git clone https://github.com/vikash279/ForgeKit.git localforge
+cd localforge
 npm install
 npm run dev
 ```

@@ -2,8 +2,10 @@
 
 import { useState, type ReactNode } from "react";
 import Link from "next/link";
-import { Menu, Search, Wrench } from "lucide-react";
+import { Menu, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { LogoMark } from "@/components/brand/Logo";
+import { Footer } from "@/components/layout/Footer";
 import { SidebarNav } from "@/components/layout/sidebar-nav";
 import { CommandPalette } from "@/components/layout/command-palette";
 import { ThemeToggle } from "@/components/layout/theme-toggle";
@@ -52,7 +54,7 @@ export function AppShell({ children }: { children: ReactNode }) {
                 size="sm"
                 className="hidden max-w-sm flex-1 justify-start gap-2 text-muted-foreground sm:inline-flex"
                 onClick={() => {
-                  window.dispatchEvent(new Event("forgekit:command-palette"));
+                  window.dispatchEvent(new Event("localforge:command-palette"));
                 }}
               >
                 <Search className="size-3.5" />
@@ -70,6 +72,7 @@ export function AppShell({ children }: { children: ReactNode }) {
           )}
         </header>
         <main className="flex min-h-0 flex-1 flex-col p-4">{children}</main>
+        <Footer />
       </div>
     </div>
   );
@@ -78,9 +81,7 @@ export function AppShell({ children }: { children: ReactNode }) {
 function Brand() {
   return (
     <Link href="/" className="flex items-center gap-2 border-b px-4 py-3">
-      <span className="flex size-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-        <Wrench className="size-4" />
-      </span>
+      <LogoMark />
       <span>
         <span className="block text-sm font-semibold">{SITE_NAME}</span>
         <span className="block text-[11px] text-muted-foreground">

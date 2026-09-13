@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { JsonLd } from "@/components/tools/json-ld";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { ToolSeoSection } from "@/components/ToolSeoSection";
 import { ToolClientBoundary } from "@/components/tools/tool-client-boundary";
-import { toolJsonLd, toolMetadata } from "@/lib/seo";
+import { buildToolJsonLdGraph, generateToolMetadata } from "@/lib/seo";
 import { getStaticToolParams, requireRegisteredTool } from "@/registry";
 
 export const dynamicParams = false;
@@ -17,7 +18,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { category, slug } = await params;
   const tool = requireRegisteredTool(category, slug);
-  return toolMetadata(tool.config);
+  return generateToolMetadata(tool.config);
 }
 
 export default async function ToolPage({
@@ -30,8 +31,9 @@ export default async function ToolPage({
 
   return (
     <>
-      <JsonLd data={toolJsonLd(tool.config)} />
+      <JsonLd data={buildToolJsonLdGraph(tool.config)} />
       <ToolClientBoundary category={category} slug={slug} config={tool.config} />
+      <ToolSeoSection config={tool.config} />
     </>
   );
 }

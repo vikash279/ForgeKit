@@ -100,6 +100,26 @@ const TOOL_COMPONENTS = {
     () => import("@/tools/media/text-diff/Component"),
     { ssr: false, loading: ToolFallback },
   ),
+  "samples/sample-files": dynamic(
+    () => import("@/tools/samples/sample-files/Component"),
+    { ssr: false, loading: ToolFallback },
+  ),
+  "converters/json-csv-yaml": dynamic(
+    () => import("@/tools/converters/json-csv-yaml/Component"),
+    { ssr: false, loading: ToolFallback },
+  ),
+  "converters/image-format": dynamic(
+    () => import("@/tools/converters/image-format/Component"),
+    { ssr: false, loading: ToolFallback },
+  ),
+  "converters/svg-raster": dynamic(
+    () => import("@/tools/converters/svg-raster/Component"),
+    { ssr: false, loading: ToolFallback },
+  ),
+  "media/audio-inspector": dynamic(
+    () => import("@/tools/media/audio-inspector/Component"),
+    { ssr: false, loading: ToolFallback },
+  ),
 } as const;
 
 type ToolKey = keyof typeof TOOL_COMPONENTS;

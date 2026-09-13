@@ -14,5 +14,5 @@ export const urlHtmlEncoderConfig: ToolConfig = {
   icon: "Link2",
   inputs: [{ id: "text", label: "Input", kind: "text" }],
   outputs: [{ id: "encoded", label: "Output", kind: "text" }],
-  sampleData: `<a href="https://example.com?q=forge kit">Forge & Co</a>`,
+  sampleData: `<a href="https://example.com?q=localforge">LocalForge & Co</a>`,
 };

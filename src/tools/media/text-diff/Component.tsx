@@ -15,7 +15,7 @@ import type { ToolComponentProps } from "@/types/tool";
 export default function TextDiffTool({ config }: ToolComponentProps) {
   const worker = useMemo(() => createDiffWorker(), []);
   const [left, setLeft] = useState(config.sampleData ?? "");
-  const [right, setRight] = useState("ForgeKit ships local-first utilities with a proxy when needed.");
+  const [right, setRight] = useState("LocalForge ships local-first utilities with a proxy when needed.");
   const [lines, setLines] = useState<DiffLine[]>([]);
   const [mode, setMode] = useState<"split" | "inline">("split");
   const [error, setError] = useState<string | null>(null);
@@ -55,7 +55,7 @@ export default function TextDiffTool({ config }: ToolComponentProps) {
           }}
           onSample={() => {
             setLeft(config.sampleData ?? "");
-            setRight("ForgeKit ships local-first utilities with a proxy when needed.");
+            setRight("LocalForge ships local-first utilities with a proxy when needed.");
           }}
           extra={
             <Tabs value={mode} onValueChange={(value) => setMode(value as "split" | "inline")}>
